@@ -1,0 +1,1 @@
+<?php /**PATH E:\Ban_quan_ao\web_ban_quan_ao\resources\views/frontend/layouts/phone.blade.php ENDPATH**/ ?>

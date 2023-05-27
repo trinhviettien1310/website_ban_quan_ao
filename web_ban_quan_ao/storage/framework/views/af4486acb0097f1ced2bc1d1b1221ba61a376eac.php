@@ -1,0 +1,407 @@
+
+<?php $__env->startSection('main-content'); ?>
+<?php $__env->startSection('title','Nhóm D'); ?>
+ <!--pos home section-->
+
+ <div class="pos_home_section">
+    <div class="row">
+       <!--banner slider start-->
+        <div class="col-12">
+            <div class="banner_slider slider_two">
+                <div class="slider_active owl-carousel">
+                    <?php $__currentLoopData = $banner; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banners): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="single_slider" style="background-image: url(<?php echo e($banners->photo); ?>)">
+                        <div class="slider_content">
+                            <div class="slider_content_inner">  
+                                
+                                
+                                
+                            </div>     
+                        </div>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
+            </div> 
+            <!--banner slider start-->
+        </div>    
+    </div>  
+     <!--new product area start-->
+    <div class="new_product_area product_two">
+        <div class="row">
+            <div class="col-12">
+                <div class="block_title">
+                <h3>Sản Phẩm Mới</h3>
+            </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="single_p_active owl-carousel">
+                <?php $__currentLoopData = $productnew; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php
+                    $photo=explode(',',$product->photo);
+                ?>
+                <div class="col-lg-3">
+                    <div class="single_product">
+                        <div class="product_thumb">
+                           <a href="<?php echo e(route('product-detail',$product->slug)); ?>"><img src="<?php echo e($photo[0]); ?>" alt="<?php echo e($photo[0]); ?>"></a> 
+                           
+                           <div class="product_action">
+                               <a href="<?php echo e(route('add-to-cart',$product->id)); ?>" > <i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a>
+                           </div>
+                        </div>
+                        <div class="product_content">
+                            <span class="old-price"><?php echo e(number_format($product->price),2); ?>đ</span>
+                            <h3 class="product_title"><a href="<?php echo e(route('productview',$product->slug)); ?>"><?php echo e($product->title); ?></a></h3>
+                        </div>
+                        <div class="product_info">
+                            <ul>
+                                <li><a href="#" data-toggle="modal" data-target="#modal_box_<?php echo e($product->id); ?>" title="Quick view">Chi Tiết</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                
+            </div> 
+        </div>      
+    </div> 
+    <!--new product area start--> 
+           
+    <!--banner area start-->
+    <div class="banner_area banner_two">
+        <div class="row">
+            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_banner">
+                    <a href="<?php echo e(route('product-cat',$cate->slug)); ?>"><img src="<?php echo e($cate->photo); ?>" alt=""></a>
+                    <div class="banner_title">
+                        <p><span><?php echo e($cate->title); ?></span></p>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            
+        </div>
+    </div>     
+    <!--banner area end--> 
+                                  
+    <!--featured product area start-->
+    <div class="new_product_area product_two">
+        <div class="row">
+            <div class="col-12">
+                <div class="block_title">
+                <h3>Sản Phẩm Nổi Bật</h3>
+            </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="single_p_active owl-carousel">
+                <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php
+                    $photo=explode(',',$product->photo);
+                ?>
+                <div class="col-lg-3">
+                    <div class="single_product">
+                        <div class="product_thumb">
+                           <a href="<?php echo e(route('product-detail',$product->slug)); ?>"><img src="<?php echo e($photo[0]); ?>" alt="<?php echo e($photo[0]); ?>"></a> 
+                           <div class="img_icone">
+                               <img src="assets\img\cart\span-new.png" alt="">
+                           </div>
+                           <div class="product_action">
+                               <a href="/cart-add/<?php echo e($product->id); ?>"> <i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a>
+                           </div>
+                        </div>
+                        <div class="product_content">
+                            <span class="old-price"><?php echo e(number_format($product->price),2); ?>đ</span>
+                            <h3 class="product_title"><a href="<?php echo e(route('product-detail',$product->slug)); ?>"><?php echo e($product->title); ?></a></h3>
+                        </div>
+                        <div class="product_info">
+                            <ul>
+                                
+                                <li><a href="#" data-toggle="modal" data-target="#modal_box_<?php echo e($product->id); ?>" title="Quick view">Chi Tiết</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div> 
+        </div>      
+    </div> 
+    <!--featured product area start-->   
+           
+    <!--blog area start-->
+    <div class="blog_area blog_two">
+        <div class="row">   
+            <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_blog">
+                    <div class="blog_thumb">
+                        <a href="<?php echo e(route('blog-detail',$data->slug)); ?>"><img src="<?php echo e($data->photo); ?>" alt=""></a>
+                    </div>
+                    <div class="blog_content">
+                        <div class="blog_post">
+                            <ul>
+                                <li>
+                                    <a href="#">Tech</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3><a href="<?php echo e(route('blog-detail',$data->slug)); ?>"><?php echo e($data->title); ?></a></h3>
+                        <p><?php echo $data->summary; ?></p>
+                        <div class="post_footer">
+                            <div class="post_meta">
+                                <ul>
+                                    <li>Jun 20, 2018</li>
+                                </ul>
+                            </div>
+                            <div class="Read_more">
+                                <a href="<?php echo e(route('blog-detail',$data->slug)); ?>">Đọc Thêm  <i class="fa fa-angle-double-right"></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>    
+    </div>
+    <!--blog area end-->  
+           
+    <!--brand logo strat--> 
+    <div class="brand_logo brand_two">
+        <div class="block_title">
+            <h3>Thương Hiệu</h3>
+        </div>
+        <div class="row">
+            <div class="brand_active owl-carousel">
+                <?php $__currentLoopData = $brand; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brands): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="col-lg-2">
+                    <div class="single_brand">
+                        <a href="#"><img src="<?php echo e($brands->photo); ?>" alt="<?php echo e($brands->photo); ?>"></a>
+                    </div>
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+        </div>
+    </div>       
+    <!--brand logo end-->                                             
+</div>
+<!--pos home section end-->
+</div>
+<!--pos page inner end-->
+</div>
+</div>
+<!--pos page end-->
+
+
+<?php if($productnew): ?>
+<?php $__currentLoopData = $productnew; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!-- modal area start -->
+<div class="modal fade" id="modal_box_<?php echo e($product->id); ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal_body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <div class="modal_tab">
+                                <div class="tab-content" id="pills-tabContent">
+                                    <?php
+                                        $photo=explode(',',$product->photo);
+                                    ?>
+
+                                   
+                                    <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                                        <div class="modal_tab_img">
+                                            <a href="#"><img src="<?php echo e($photo[0]); ?>"
+                                                    alt=""></a>
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    
+                                </div>
+                                <div class="modal_tab_button">
+                                    <ul class="nav product_navactive" role="tablist">
+                                        <li>
+                                            <a class="nav-link active" data-toggle="tab" href="#tab1"
+                                                role="tab" aria-controls="tab1" aria-selected="false"><img
+                                                    src="<?php echo e($photo[0]); ?>" alt="<?php echo e($photo[0]); ?>"></a>
+                                        </li>
+                                        <?php $__currentLoopData = $photo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li>
+                                            <a class="nav-link" data-toggle="tab" href="#tab2" role="tab"
+                                                aria-controls="tab2" aria-selected="false"><img
+                                                    src="<?php echo e($data); ?>" alt=""></a>
+                                        </li>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <div class="modal_right">
+                                <div class="modal_title mb-10">
+                                    <h2><?php echo e($product->title); ?></h2>
+                                </div>
+                                <div class="modal_price mb-10">
+                                    <?php
+                                        $giakm=($product->price-($product->price*$product->discount)/100);
+                                    ?>
+                                    <?php if($product->discount !=0): ?>
+                                    <span class="new_price"><?php echo e(number_format($giakm),2); ?>đ</span>
+                                    <span class="old_price"><?php echo e(number_format($product->price),2); ?>đ</span>
+                                    <?php else: ?>
+                                    <span class="new_price"><?php echo e(number_format($product->price),2); ?>đ</span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="modal_content mb-10">
+                                    <p><?php echo $product->summary; ?></p>
+                                </div>
+                                <div class="modal_size mb-15">
+                                    <h2>size</h2>
+                                    <?php
+                                        $size=explode(',',$product->size)
+                                    ?>
+                                    <ul>
+                                        <?php $__currentLoopData = $size; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sizes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><a href="#"><?php echo e($sizes); ?></a></li>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="modal_add_to_cart mb-15">
+                                    <form action="<?php echo e(route('single-add-cart',$product->id)); ?>" method="POST">
+                                        <?php echo csrf_field(); ?>
+                                        <input min="0" max="100" step="2" value="1" name="quantity"
+                                            type="number">
+                                        <button type="submit">Thêm Vào Giỏ Hàng</button>
+                                    </form>
+                                </div>
+                                <div class="modal_description mb-15">
+                                    <p><?php echo $product->description; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endif; ?>
+
+<?php if($products): ?>
+<?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!-- modal area start -->
+<div class="modal fade" id="modal_box_<?php echo e($product->id); ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal_body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <div class="modal_tab">
+                                <div class="tab-content" id="pills-tabContent">
+                                    <?php
+                                        $photo=explode(',',$product->photo);
+                                    ?>
+
+                                   
+                                    <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                                        <div class="modal_tab_img">
+                                            <a href="#"><img src="<?php echo e($photo[0]); ?>"
+                                                    alt=""></a>
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    
+                                </div>
+                                <div class="modal_tab_button">
+                                    <ul class="nav product_navactive" role="tablist">
+                                        <li>
+                                            <a class="nav-link active" data-toggle="tab" href="#tab1"
+                                                role="tab" aria-controls="tab1" aria-selected="false"><img
+                                                    src="<?php echo e($photo[0]); ?>" alt="<?php echo e($photo[0]); ?>"></a>
+                                        </li>
+                                        <?php $__currentLoopData = $photo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li>
+                                            <a class="nav-link" data-toggle="tab" href="#tab2" role="tab"
+                                                aria-controls="tab2" aria-selected="false"><img
+                                                    src="<?php echo e($data); ?>" alt=""></a>
+                                        </li>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <div class="modal_right">
+                                <div class="modal_title mb-10">
+                                    <h2><?php echo e($product->title); ?></h2>
+                                </div>
+                                <div class="modal_price mb-10">
+                                    <?php
+                                        $giakm=($product->price-($product->price*$product->discount)/100);
+                                    ?>
+                                    <?php if($product->discount !=0): ?>
+                                    <span class="new_price"><?php echo e(number_format($giakm),2); ?>đ</span>
+                                    <span class="old_price"><?php echo e(number_format($product->price),2); ?>đ</span>
+                                    <?php else: ?>
+                                    <span class="new_price"><?php echo e(number_format($product->price),2); ?>đ</span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="modal_content mb-10">
+                                    <p><?php echo $product->summary; ?></p>
+                                </div>
+                                <div class="modal_size mb-15">
+                                    <h2>size</h2>
+                                    <?php
+                                        $size=explode(',',$product->size)
+                                    ?>
+                                    <ul>
+                                        <?php $__currentLoopData = $size; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sizes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><a href="#"><?php echo e($sizes); ?></a></li>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="modal_add_to_cart mb-15">
+                                    <form action="<?php echo e(route('single-add-cart',$product->id)); ?>" method="POST">
+                                        <?php echo csrf_field(); ?>
+                                        <input min="0" max="100" step="2" value="1" name="quantity"
+                                            type="number">
+                                        <button type="submit">Thêm Vào Giỏ Hàng</button>
+                                    </form>
+                                </div>
+                                <div class="modal_description mb-15">
+                                    <p><?php echo $product->description; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endif; ?>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('styles'); ?>
+<style>
+</style>
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\BE2\web_ban_quan_ao\resources\views/frontend/index.blade.php ENDPATH**/ ?>

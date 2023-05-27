@@ -1,0 +1,1 @@
+<?php /**PATH C:\wamp64\www\PHP_Laravel\web_ban_quan_ao\resources\views/frontend/pages/register.blade.php ENDPATH**/ ?>
